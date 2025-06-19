@@ -27,9 +27,22 @@ app.use('/api/', limiter);
 // CORS configuration
 const corsOptions = {
   origin: process.env.NODE_ENV === 'production' 
-    ? ['https://mugombwa.m-gasore.workers.dev/']  : ['https://mugombwa.m-gasore.workers.dev/']
+    ? [
+        'https://mugombwa.m-gasore.workers.dev',
+        'https://mugombwa.m-gasore.workers.dev/'
+      ]
+    : [
+        'http://localhost:3000',
+        'http://localhost:5173',
+        'https://mugombwa.m-gasore.workers.dev',
+        'https://mugombwa.m-gasore.workers.dev/'
+      ],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
+  optionsSuccessStatus: 200
 };
-app.use(cors(corsOptions));
+app.use(cors(corsOptions))
 
 // Body parsing middleware
 app.use(express.json({ limit: '10mb' }));
