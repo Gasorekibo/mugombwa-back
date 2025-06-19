@@ -27,8 +27,8 @@ app.use('/api/', limiter);
 // CORS configuration
 const corsOptions = {
   origin: process.env.NODE_ENV === 'production' 
-    ? ['http://localhost:5173'] // Replace with your production domain
-    : ['http://localhost:5173', 'http://localhost:3001'], // React development server
+    ? ['https://mugombwa.m-gasore.workers.dev'] // Replace with your production domain
+    : ['https://mugombwa.m-gasore.workers.dev/'], // React development server
   credentials: true,
   optionsSuccessStatus: 200
 };
